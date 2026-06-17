@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QGH — Personal Cybersecurity Company. Complete digital protection, threat monitoring, and 24/7 incident response.">
+  <title>QGH — Cybersecurity Company | 1 Pal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08090f;
+      --bg-soft: #0e1019;
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-light: rgba(255, 255, 255, 0.14);
+      --violet: #a78bfa;
+      --violet-soft: rgba(167, 139, 250, 0.15);
+      --mint: #5eead4;
+      --mint-soft: rgba(94, 234, 212, 0.12);
+      --sky: #7dd3fc;
+      --amber: #fcd34d;
+      --rose: #fb7185;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gradient: linear-gradient(135deg, #a78bfa 0%, #5eead4 50%, #7dd3fc 100%);
+      --gradient-soft: linear-gradient(135deg, rgba(167,139,250,0.2), rgba(94,234,212,0.1));
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --font: 'DM Sans', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--violet-soft); color: #fff; }
+    a { color: var(--mint); text-decoration: none; transition: color 0.25s; }
+    a:hover { color: var(--sky); }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+    /* Ambient */
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.45;
+      animation: drift 22s ease-in-out infinite;
+    }
+    .orb-1 { width: 520px; height: 520px; background: #4c1d95; top: -8%; left: -6%; }
+    .orb-2 { width: 440px; height: 440px; background: #0e7490; top: 35%; right: -10%; animation-delay: -7s; }
+    .orb-3 { width: 360px; height: 360px; background: #312e81; bottom: 5%; left: 25%; animation-delay: -14s; opacity: 0.3; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -25px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .noise {
+      position: fixed; inset: 0; opacity: 0.025; pointer-events: none; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(8, 9, 15, 0.72);
+      backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.scrolled { box-shadow: 0 8px 40px rgba(0,0,0,0.35); }
+
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 76px; gap: 20px;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: 14px;
+      font-weight: 700; font-size: 1.15rem; color: var(--text); flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-weight: 600; font-size: 0.8rem;
+      color: #0f0f18; box-shadow: 0 8px 28px rgba(167,139,250,0.35);
+    }
+    .logo-sub { font-size: 0.7rem; color: var(--text-dim); font-weight: 500; display: block; margin-top: 1px; }
+
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted); font-size: 0.88rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--gradient) !important;
+      color: #0f0f18 !important; padding: 10px 20px !important;
+      border-radius: 100px !important; font-weight: 600 !important;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      position: relative;
+    }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--glass); border: 1px solid var(--border);
+      color: var(--text-muted); padding: 8px 14px; border-radius: 100px;
+      cursor: pointer; font-family: var(--font); font-size: 0.82rem; font-weight: 500;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lang-toggle:hover { background: var(--glass-hover); border-color: var(--border-light); color: var(--text); }
+
+    .lang-dropdown {
+      position: absolute; top: calc(100% + 10px); right: 0;
+      background: rgba(14, 16, 25, 0.95); backdrop-filter: blur(20px);
+      border: 1px solid var(--border-light); border-radius: var(--radius-sm);
+      padding: 8px; min-width: 160px; opacity: 0; visibility: hidden;
+      transform: translateY(-8px); transition: all 0.25s;
+      box-shadow: var(--shadow);
+    }
+    .lang-switch.open .lang-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .lang-btn {
+      display: flex; align-items: center; gap: 10px; width: 100%;
+      background: none; border: none; color: var(--text-muted);
+      padding: 10px 14px; border-radius: 8px; cursor: pointer;
+      font-family: var(--font); font-size: 0.85rem; text-align: left;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn:hover { background: var(--glass-hover); color: var(--text); }
+    .lang-btn.active { background: var(--violet-soft); color: var(--violet); }
+
+    .menu-toggle {
+      display: none; background: var(--glass); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text); cursor: pointer; padding: 10px;
+    }
+
+    /* Alert */
+    .alert-banner {
+      position: relative; z-index: 2; margin-top: 76px;
+      background: linear-gradient(90deg, rgba(251,113,133,0.1), rgba(252,211,77,0.08));
+      border-bottom: 1px solid rgba(251,113,133,0.2);
+      padding: 13px 28px; text-align: center;
+    }
+    .alert-banner p { font-size: 0.84rem; font-weight: 500; color: var(--amber); line-height: 1.5; }
+
+    /* Hero */
+    .hero {
+      position: relative; z-index: 2;
+      padding: 88px 0 110px;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--glass); border: 1px solid var(--border-light);
+      padding: 9px 18px; border-radius: 100px;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--mint);
+      margin-bottom: 28px; letter-spacing: 0.02em;
+    }
+    .pulse-dot {
+      width: 7px; height: 7px; background: var(--mint); border-radius: 50%;
+      box-shadow: 0 0 12px var(--mint);
+      animation: pulse 2.5s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 22px;
+    }
+    .hero h1 .grad {
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--text-muted); max-width: 540px; margin-bottom: 36px; font-weight: 400;
+    }
+
+    .hero-chips {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--glass); border: 1px solid var(--border);
+      padding: 10px 16px; border-radius: 100px;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px 28px; border-radius: 100px; font-weight: 600; font-size: 0.95rem;
+      border: none; cursor: pointer; font-family: var(--font);
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--gradient); color: #0f0f18;
+      box-shadow: 0 12px 40px rgba(167,139,250,0.3);
+    }
+    .btn-primary:hover { box-shadow: 0 16px 48px rgba(94,234,212,0.25); }
+
+    .btn-ghost {
+      background: var(--glass); color: var(--text);
+      border: 1px solid var(--border-light);
+    }
+    .btn-ghost:hover { background: var(--glass-hover); border-color: rgba(167,139,250,0.35); }
+
+    /* Hero card visual */
+    .hero-card {
+      position: relative;
+      background: var(--glass);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      padding: 36px;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+    .hero-card::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 28px; padding: 1px;
+      background: linear-gradient(135deg, rgba(167,139,250,0.4), transparent 40%, rgba(94,234,212,0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .company-logo-big {
+      width: 88px; height: 88px; border-radius: 22px;
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-weight: 700; font-size: 1.4rem;
+      color: #0f0f18; margin-bottom: 24px;
+      box-shadow: 0 16px 48px rgba(167,139,250,0.35);
+    }
+
+    .hero-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .hero-card .role { color: var(--violet); font-family: var(--mono); font-size: 0.8rem; margin-bottom: 24px; }
+
+    .status-rows { display: flex; flex-direction: column; gap: 12px; }
+    .status-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; background: rgba(0,0,0,0.25);
+      border-radius: var(--radius-sm); border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .status-row span:last-child { color: var(--mint); font-family: var(--mono); font-size: 0.78rem; }
+    .status-dot { width: 8px; height: 8px; background: var(--mint); border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 8px var(--mint); }
+
+    /* Stats */
+    .stats {
+      position: relative; z-index: 2;
+      padding: 0 0 80px;
+    }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .stat-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 24px; text-align: center;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .stat-card:hover { border-color: var(--border-light); transform: translateY(-3px); }
+    .stat-num {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; font-family: var(--mono);
+      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-lbl { font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* Sections */
+    section { position: relative; z-index: 2; padding: 96px 0; }
+
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+    .section-tag {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--violet);
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+      font-weight: 700; letter-spacing: -0.025em; margin-bottom: 14px; line-height: 1.15;
+    }
+    .section-desc { color: var(--text-muted); font-size: 1.05rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+    .profile-card {
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--glass); border: 1px solid var(--border-light);
+      backdrop-filter: blur(16px);
+    }
+    .profile-inner {
+      padding: 48px 36px; text-align: center;
+      background: var(--gradient-soft);
+    }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--gradient); margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; font-weight: 800; color: #0f0f18;
+      border: 3px solid rgba(255,255,255,0.15);
+    }
+    .profile-name { font-size: 1.6rem; font-weight: 700; }
+    .profile-role { color: var(--mint); font-family: var(--mono); font-size: 0.82rem; margin: 8px 0 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .tag {
+      background: var(--glass); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; color: var(--text-muted);
+    }
+
+    .about-text h3 { font-size: 1.4rem; margin-bottom: 18px; font-weight: 700; }
+    .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
+    .check-list { list-style: none; margin-top: 24px; }
+    .check-list li {
+      display: flex; gap: 12px; padding: 13px 0;
+      border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.95rem;
+    }
+    .check-list li::before {
+      content: '✦'; color: var(--mint); font-size: 0.7rem; margin-top: 5px; flex-shrink: 0;
+    }
+
+    /* Threats */
+    .threat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .threat-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; display: flex; gap: 20px;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s;
+    }
+    .threat-card:hover { border-color: rgba(251,113,133,0.25); }
+    .threat-num {
+      font-family: var(--mono); font-size: 1.75rem; font-weight: 700;
+      color: var(--rose); flex-shrink: 0; min-width: 72px;
+    }
+    .threat-card h4 { margin-bottom: 6px; font-size: 1rem; }
+    .threat-card p { color: var(--text-muted); font-size: 0.88rem; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .service-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-light);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .svc-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--violet-soft); display: flex;
+      align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 18px;
+    }
+    .service-card h3 { font-size: 1.05rem; margin-bottom: 10px; font-weight: 600; }
+    .service-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+    /* Process */
+    .process-band {
+      background: var(--glass); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+    .step {
+      text-align: center; padding: 32px 20px;
+      background: rgba(0,0,0,0.2); border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .step::before {
+      counter-increment: s; content: counter(s, decimal-leading-zero);
+      display: block; font-family: var(--mono); font-size: 1.75rem;
+      font-weight: 600; color: var(--violet); opacity: 0.5; margin-bottom: 14px;
+    }
+    .step h4 { font-size: 0.95rem; margin-bottom: 8px; }
+    .step p { color: var(--text-muted); font-size: 0.84rem; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; }
+    .price-main {
+      background: var(--glass); border: 1px solid var(--border-light);
+      border-radius: var(--radius); padding: 44px; position: relative; overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+    .price-main::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient);
+    }
+    .price-badge {
+      display: inline-block; background: var(--mint-soft); color: var(--mint);
+      font-family: var(--mono); font-size: 0.68rem; font-weight: 600;
+      padding: 6px 12px; border-radius: 6px; letter-spacing: 0.08em; margin-bottom: 20px;
+    }
+    .price-row { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
+    .price-row .d { font-size: 1.4rem; color: var(--text-muted); }
+    .price-row .n { font-size: 3.5rem; font-weight: 800; font-family: var(--mono); line-height: 1; }
+    .price-row .p { color: var(--text-muted); }
+    .price-desc { color: var(--text-muted); margin-bottom: 28px; font-size: 0.95rem; }
+
+    .inc-list { list-style: none; }
+    .inc-list li {
+      display: flex; gap: 12px; padding: 11px 0;
+      font-size: 0.9rem; color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .inc-list li::before { content: '●'; color: var(--violet); font-size: 0.45rem; margin-top: 7px; flex-shrink: 0; }
+
+    .extras-panel {
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px;
+    }
+    .extras-panel h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .extras-panel > p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 22px; }
+    .extra {
+      display: flex; gap: 14px; padding: 18px;
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); margin-bottom: 10px;
+    }
+    .extra span:first-child { font-size: 1.3rem; }
+    .extra h4 { font-size: 0.95rem; margin-bottom: 4px; }
+    .extra p { color: var(--text-muted); font-size: 0.82rem; }
+    .why-box {
+      margin-top: 20px; padding: 18px; border-radius: var(--radius-sm);
+      background: var(--violet-soft); border: 1px solid rgba(167,139,250,0.2);
+      font-size: 0.88rem; color: var(--text-muted);
+    }
+    .why-box strong { color: var(--violet); }
+
+    /* Testimonials */
+    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .test-card {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 30px; backdrop-filter: blur(10px);
+    }
+    .stars { color: var(--amber); margin-bottom: 14px; letter-spacing: 2px; font-size: 0.9rem; }
+    .test-quote { color: var(--text-muted); font-size: 0.92rem; font-style: italic; line-height: 1.7; margin-bottom: 22px; }
+    .test-author { display: flex; align-items: center; gap: 12px; }
+    .test-av {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--gradient-soft); border: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.8rem; color: var(--violet);
+    }
+    .test-name { font-weight: 600; font-size: 0.88rem; }
+    .test-role { color: var(--text-dim); font-size: 0.78rem; }
+
+    /* Apply */
+    .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .apply-box, .apply-side-panel {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px; backdrop-filter: blur(12px);
+    }
+    .apply-box h3 { font-size: 1.25rem; margin-bottom: 22px; }
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block; font-family: var(--mono); font-size: 0.7rem;
+      color: var(--violet); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+    .field-val {
+      background: rgba(0,0,0,0.3); border: 1px dashed var(--border-light);
+      border-radius: var(--radius-sm); padding: 13px 16px;
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+    .warn-box {
+      margin-top: 22px; padding: 18px;
+      background: rgba(251,113,133,0.08); border: 1px solid rgba(251,113,133,0.25);
+      border-radius: var(--radius-sm);
+    }
+    .warn-box p { color: var(--rose); font-weight: 600; font-size: 0.86rem; line-height: 1.55; }
+
+    .apply-side-panel h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .apply-side-panel > p.desc { color: var(--text-muted); margin-bottom: 24px; }
+    .mail-block {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 22px; background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-light); border-radius: var(--radius-sm); margin-bottom: 14px;
+    }
+    .mail-block a { font-family: var(--mono); font-size: 1.05rem; font-weight: 600; word-break: break-all; }
+    .copy-btn {
+      background: var(--violet-soft); border: 1px solid rgba(167,139,250,0.3);
+      color: var(--violet); padding: 10px 18px; border-radius: 100px;
+      cursor: pointer; font-family: var(--mono); font-size: 0.8rem;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: rgba(167,139,250,0.25); }
+    .tg-panel {
+      margin-top: 24px; padding: 22px;
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    }
+    .tg-panel h4 { margin-bottom: 10px; font-size: 0.95rem; }
+    .tg-panel p { color: var(--text-muted); font-size: 0.86rem; margin-bottom: 14px; }
+    .tpl-box {
+      margin-top: 20px; padding: 18px; background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted);
+      line-height: 1.85; white-space: pre-wrap;
+    }
+
+    /* FAQ */
+    .faq-wrap { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: var(--glass); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); margin-bottom: 10px; overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; color: var(--text);
+      padding: 20px 22px; text-align: left; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font); transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--glass-hover); }
+    .faq-q .arr { color: var(--violet); transition: transform 0.3s; }
+    .faq-item.open .arr { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-a { max-height: 480px; }
+    .faq-a p { padding: 0 22px 20px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* CTA */
+    .cta-wrap {
+      text-align: center; padding: 72px 48px;
+      background: var(--glass); border: 1px solid var(--border-light);
+      border-radius: 28px; position: relative; overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+    .cta-wrap::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, var(--violet-soft), transparent 65%);
+    }
+    .cta-wrap h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: 14px; position: relative; }
+    .cta-wrap p { color: var(--text-muted); max-width: 520px; margin: 0 auto 28px; position: relative; }
+    .cta-wrap .btn { position: relative; }
+
+    /* Footer */
+    footer {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border); padding: 48px 0 28px;
+      background: rgba(0,0,0,0.35);
+    }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .foot-brand p { color: var(--text-muted); font-size: 0.88rem; margin-top: 14px; max-width: 300px; line-height: 1.6; }
+    .foot-col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 16px; }
+    .foot-col ul { list-style: none; }
+    .foot-col li { margin-bottom: 8px; }
+    .foot-col a { color: var(--text-muted); font-size: 0.88rem; }
+    .foot-bottom {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
+      padding-top: 28px; border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--text-dim);
+    }
+    .foot-disc { max-width: 520px; font-size: 0.72rem; line-height: 1.55; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .about-grid, .pricing-grid, .apply-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: absolute; top: 76px; left: 0; right: 0;
+        flex-direction: column; background: rgba(8,9,15,0.98);
+        padding: 20px; gap: 12px; border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .nav-right .nav-links { display: none; }
+      .mobile-nav { display: flex !important; }
+      .services-grid, .test-grid, .threat-grid, .steps { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .foot-bottom { flex-direction: column; text-align: center; }
+      section { padding: 72px 0; }
+      .hero { padding-top: 56px; }
+    }
+
+    .mobile-nav { display: none; flex-direction: column; gap: 12px; padding: 16px 28px 20px; border-top: 1px solid var(--border); }
+    .mobile-nav a { color: var(--text-muted); font-size: 0.9rem; padding: 8px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="noise"></div>
+
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">QGH</div>
+        <div>
+          QGH
+          <span class="logo-sub">Cybersecurity Co.</span>
+        </div>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" data-i18n="nav.company">Company</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <li><a href="#apply" data-i18n="nav.apply">Apply</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="#apply" class="nav-cta" data-i18n="nav.cta">Get Protected</a></li>
+        </ul>
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language">
+            🌐 <span id="langCurrent">EN</span> ▾
+          </button>
+          <div class="lang-dropdown">
+            <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+            <button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+            <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+            <button class="lang-btn" data-lang="es">🇲🇽 Español (MX)</button>
+            <button class="lang-btn" data-lang="ja">🇯🇵 日本語</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" type="button">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about" data-i18n="nav.company">Company</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#apply" data-i18n="nav.apply">Apply</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </div>
+  </nav>
+
+  <div class="alert-banner">
+    <p data-i18n="alert">⚠️ DO NOT SUBSCRIBE TO THE CHANNEL — Apply via email only.</p>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero.badge">WE MOVED TO THIS CHANNEL — QGH</span>
+          </div>
+          <h1>
+            <span data-i18n="hero.title">Your Trusted</span><br>
+            <span class="grad" data-i18n="hero.titleGrad">Cybersecurity Company</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">QGH delivers enterprise-grade digital protection for individuals worldwide.</p>
+          <div class="hero-chips">
+            <span class="chip" data-i18n="hero.meta1">👤 1 Pal — Lead Specialist</span>
+            <span class="chip" data-i18n="hero.meta2">💼 10 yrs exp</span>
+            <span class="chip" data-i18n="hero.meta3">📍 USA · Global</span>
+            <span class="chip" data-i18n="hero.meta4">💲 $35/month</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#apply" class="btn btn-primary">
+              <span data-i18n="hero.btnApply">Apply for Protection</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h14M10 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://t.me/QGH_bot" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <span data-i18n="hero.btnTelegram">Official QGH Channel</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="company-logo-big">QGH</div>
+          <h3>QGH Security</h3>
+          <p class="role" data-i18n="company.cardSub">Personal Cyber Protection Company</p>
+          <div class="status-rows">
+            <div class="status-row">
+              <span><span class="status-dot"></span>Threat Monitor</span>
+              <span>ACTIVE</span>
+            </div>
+            <div class="status-row">
+              <span><span class="status-dot"></span>Dark Web Scan</span>
+              <span>24/7</span>
+            </div>
+            <div class="status-row">
+              <span><span class="status-dot"></span>Incident Response</span>
+              <span>READY</span>
+            </div>
+            <div class="status-row">
+              <span><span class="status-dot"></span>Lead Specialist</span>
+              <span>1 PAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="container">
+      <div class="stats-row reveal">
+        <div class="stat-card">
+          <div class="stat-num" data-target="10">0</div>
+          <div class="stat-lbl" data-i18n="stats.exp">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="2400">0</div>
+          <div class="stat-lbl" data-i18n="stats.threats">Threats Neutralized</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="99">0</div>
+          <div class="stat-lbl" data-i18n="stats.retention">Client Retention</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="24">0</div>
+          <div class="stat-lbl" data-i18n="stats.monitoring">Hour Monitoring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="company.tag">about qgh</div>
+        <h2 class="section-title" data-i18n-html="company.title">A Security Company,<br>Not Just a Tool</h2>
+        <p class="section-desc" data-i18n="company.desc">QGH is a dedicated cybersecurity company focused on personal digital protection.</p>
+      </div>
+      <div class="about-grid">
+        <div class="profile-card reveal">
+          <div class="profile-inner">
+            <div class="avatar">1P</div>
+            <div class="profile-name">1 Pal</div>
+            <div class="profile-role" data-i18n="company.leadRole">Lead Specialist · QGH Cybersecurity</div>
+            <div class="tags">
+              <span class="tag" data-i18n="company.tag1">USA Based</span>
+              <span class="tag" data-i18n="company.tag2">Global Clients</span>
+              <span class="tag" data-i18n="company.tag3">10+ Years</span>
+              <span class="tag" data-i18n="company.tag4">Official Channel</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <h3 data-i18n="company.h3">Protection Built Around People, Not Products</h3>
+          <p data-i18n="company.p1">QGH was founded on a simple belief...</p>
+          <p data-i18n="company.p2">Our lead specialist 1 Pal brings a decade of experience...</p>
+          <p data-i18n="company.p3">The official Telegram channel is our company hub...</p>
+          <ul class="check-list">
+            <li data-i18n="company.l1">Dedicated 1-on-1 relationship</li>
+            <li data-i18n="company.l2">Proactive threat hunting</li>
+            <li data-i18n="company.l3">Full-stack coverage</li>
+            <li data-i18n="company.l4">Real-time incident response</li>
+            <li data-i18n="company.l5">Weekly reports included</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="threats" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="threats.tag">threat landscape 2026</div>
+        <h2 class="section-title" data-i18n="threats.title">The Digital Battlefield Is Personal</h2>
+        <p class="section-desc" data-i18n="threats.desc">Every 39 seconds a cyberattack occurs.</p>
+      </div>
+      <div class="threat-grid reveal">
+        <div class="threat-card">
+          <div class="threat-num">4.8B</div>
+          <div><h4 data-i18n="threats.t1h">Records Leaked</h4><p data-i18n="threats.t1p">Your credentials may already be on the dark web.</p></div>
+        </div>
+        <div class="threat-card">
+          <div class="threat-num">73%</div>
+          <div><h4 data-i18n="threats.t2h">Social Engineering</h4><p data-i18n="threats.t2p">Phishing bypasses technical controls.</p></div>
+        </div>
+        <div class="threat-card">
+          <div class="threat-num">$12.5B</div>
+          <div><h4 data-i18n="threats.t3h">Identity Theft Losses</h4><p data-i18n="threats.t3p">Individual victims bear the heaviest cost.</p></div>
+        </div>
+        <div class="threat-card">
+          <div class="threat-num">22min</div>
+          <div><h4 data-i18n="threats.t4h">Account Takeover Time</h4><p data-i18n="threats.t4p">Irreversible damage in minutes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="services.tag">core services</div>
+        <h2 class="section-title" data-i18n="services.title">Complete Protection Stack</h2>
+        <p class="section-desc" data-i18n="services.desc">Every subscription includes a full suite of security services.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="svc-icon">🛡️</div><h3 data-i18n="services.s1t">Third-Party Protection</h3><p data-i18n="services.s1d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🚫</div><h3 data-i18n="services.s2t">Abuser Removal</h3><p data-i18n="services.s2d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🕵️</div><h3 data-i18n="services.s3t">Threat Monitoring</h3><p data-i18n="services.s3d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🔐</div><h3 data-i18n="services.s4t">Account Hardening</h3><p data-i18n="services.s4d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🔑</div><h3 data-i18n="services.s5t">Password Audit</h3><p data-i18n="services.s5d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🎣</div><h3 data-i18n="services.s6t">Phishing Response</h3><p data-i18n="services.s6d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🌐</div><h3 data-i18n="services.s7t">Privacy Cleanup</h3><p data-i18n="services.s7d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">💻</div><h3 data-i18n="services.s8t">Device Hygiene</h3><p data-i18n="services.s8d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🔒</div><h3 data-i18n="services.s9t">Secure Browsing</h3><p data-i18n="services.s9d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">⚡</div><h3 data-i18n="services.s10t">Quick Remediation</h3><p data-i18n="services.s10d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">📊</div><h3 data-i18n="services.s11t">Weekly Updates</h3><p data-i18n="services.s11d">...</p></div>
+        <div class="service-card reveal"><div class="svc-icon">🆘</div><h3 data-i18n="services.s12t">Emergency Consult</h3><p data-i18n="services.s12d">...</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process-band">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="process.tag">how it works</div>
+        <h2 class="section-title" data-i18n="process.title">From Application to Full Protection</h2>
+        <p class="section-desc" data-i18n="process.desc">Streamlined onboarding.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><h4 data-i18n="process.p1t">Submit Application</h4><p data-i18n="process.p1d">Send details to email.</p></div>
+        <div class="step"><h4 data-i18n="process.p2t">Verification</h4><p data-i18n="process.p2d">QGH reviews application.</p></div>
+        <div class="step"><h4 data-i18n="process.p3t">Security Baseline</h4><p data-i18n="process.p3d">Full audit applied.</p></div>
+        <div class="step"><h4 data-i18n="process.p4t">Ongoing Protection</h4><p data-i18n="process.p4d">Continuous monitoring.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="pricing.tag">pricing</div>
+        <h2 class="section-title" data-i18n="pricing.title">One Plan. Everything Included.</h2>
+        <p class="section-desc" data-i18n="pricing.desc">Enterprise-level security at an honest price.</p>
+      </div>
+      <div class="pricing-grid reveal">
+        <div class="price-main">
+          <div class="price-badge" data-i18n="pricing.badge">Core Subscription</div>
+          <div class="price-row">
+            <span class="d">$</span><span class="n">35</span><span class="p" data-i18n="pricing.period">/month</span>
+          </div>
+          <p class="price-desc" data-i18n="pricing.desc2">Full-spectrum protection.</p>
+          <ul class="inc-list">
+            <li data-i18n-list="pricing">Complete protection against third-party influences</li>
+            <li data-i18n-list="pricing">Deleting the abuser's account</li>
+            <li data-i18n-list="pricing">Threat monitoring</li>
+            <li data-i18n-list="pricing">Account hardening</li>
+            <li data-i18n-list="pricing">Password audit</li>
+            <li data-i18n-list="pricing">Phishing detection</li>
+            <li data-i18n-list="pricing">Social media cleanup</li>
+            <li data-i18n-list="pricing">Device hygiene</li>
+            <li data-i18n-list="pricing">Secure browsing</li>
+            <li data-i18n-list="pricing">Quick remediation</li>
+            <li data-i18n-list="pricing">Weekly update + emergency consult</li>
+          </ul>
+          <a href="#apply" class="btn btn-primary" style="width:100%;margin-top:28px" data-i18n="pricing.apply">Apply Now</a>
+        </div>
+        <div class="extras-panel">
+          <h3 data-i18n="pricing.extras">Premium Extras</h3>
+          <p data-i18n="pricing.extrasDesc">Add-on services.</p>
+          <div class="extra"><span>🔄</span><div><h4 data-i18n="pricing.e1t">Full Account Recovery</h4><p data-i18n="pricing.e1d">...</p></div></div>
+          <div class="extra"><span>🦠</span><div><h4 data-i18n="pricing.e2t">Deep Malware Removal</h4><p data-i18n="pricing.e2d">...</p></div></div>
+          <div class="extra"><span>🎓</span><div><h4 data-i18n="pricing.e3t">Security Training</h4><p data-i18n="pricing.e3d">...</p></div></div>
+          <div class="why-box"><strong data-i18n="pricing.why">Why $35?</strong> <span data-i18n="pricing.whyText">Everyone deserves real protection.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="testimonials.tag">client feedback</div>
+        <h2 class="section-title" data-i18n="testimonials.title">Trusted When It Mattered Most</h2>
+        <p class="section-desc" data-i18n="testimonials.desc">Real outcomes.</p>
+      </div>
+      <div class="test-grid reveal">
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-quote" data-i18n="testimonials.t1">...</p>
+          <div class="test-author"><div class="test-av">MK</div><div><div class="test-name" data-i18n="testimonials.t1n">M.K.</div><div class="test-role" data-i18n="testimonials.t1r">Creator</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-quote" data-i18n="testimonials.t2">...</p>
+          <div class="test-author"><div class="test-av">JR</div><div><div class="test-name" data-i18n="testimonials.t2n">J.R.</div><div class="test-role" data-i18n="testimonials.t2r">Founder</div></div></div>
+        </div>
+        <div class="test-card">
+          <div class="stars">★★★★★</div>
+          <p class="test-quote" data-i18n="testimonials.t3">...</p>
+          <div class="test-author"><div class="test-av">AL</div><div><div class="test-name" data-i18n="testimonials.t3n">A.L.</div><div class="test-role" data-i18n="testimonials.t3r">Advisor</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="apply.tag">apply now</div>
+        <h2 class="section-title" data-i18n="apply.title">Start Your Application</h2>
+        <p class="section-desc" data-i18n="apply.desc">Submit a complete application.</p>
+      </div>
+      <div class="apply-grid reveal">
+        <div class="apply-box">
+          <h3 data-i18n="apply.rules">Application Rules</h3>
+          <div class="field"><label data-i18n="apply.f1l">Name</label><div class="field-val" data-i18n="apply.f1p">[Name]</div></div>
+          <div class="field"><label data-i18n="apply.f2l">@username</label><div class="field-val" data-i18n="apply.f2p">[@username]</div></div>
+          <div class="field"><label data-i18n="apply.f3l">Telegram ID</label><div class="field-val" data-i18n="apply.f3p">[ID]</div></div>
+          <div class="field"><label data-i18n="apply.f4l">Period</label><div class="field-val" data-i18n="apply.f4p">[Period]</div></div>
+          <div class="warn-box"><p data-i18n="apply.warn">DO NOT SUBSCRIBE TO THE CHANNEL</p></div>
+        </div>
+        <div class="apply-side-panel">
+          <h3 data-i18n="apply.send">Send Your Application</h3>
+          <p class="desc" data-i18n="apply.sendDesc">Write to official QGH email.</p>
+          <div class="mail-block">
+            <span style="font-size:1.6rem">✉️</span>
+            <a href="mailto:1PalDEF@proton.me">1PalDEF@proton.me</a>
+          </div>
+          <button class="copy-btn" id="copyEmail" type="button" data-i18n="apply.copyEmail">Copy Email</button>
+          <div class="tg-panel">
+            <h4 data-i18n="apply.tgTitle">Official QGH Company Channel</h4>
+            <p data-i18n="apply.tgDesc">Do not subscribe — apply via email first.</p>
+            <a href="https://t.me/QGH_bot" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="width:100%">t.me/QGH_bot</a>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-dim);margin-top:20px" data-i18n="apply.template">Email template:</p>
+          <div class="tpl-box" id="emailTemplate">Your Name/Nickname:
+Your @username:
+Your Telegram ID:
+Subscription Period:</div>
+          <button class="copy-btn" id="copyTemplate" type="button" style="margin-top:12px" data-i18n="apply.copyTpl">Copy Template</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag" data-i18n="faq.tag">faq</div>
+        <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-wrap reveal">
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">Why can't I subscribe? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">How is QGH different? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">What platforms? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">Emergency response? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">Confidentiality? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">Cancel subscription? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">Who is this for? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" data-i18n-faq="q">What is QGH? <span class="arr">▼</span></button><div class="faq-a" data-i18n-faq="a"><p>...</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" style="padding-bottom:96px">
+    <div class="container">
+      <div class="cta-wrap reveal">
+        <h2 data-i18n="cta.title">Don't Wait Until You're Compromised</h2>
+        <p data-i18n="cta.desc">Every day without protection is a risk.</p>
+        <a href="mailto:1PalDEF@proton.me" class="btn btn-primary" data-i18n="cta.btn">Apply via 1PalDEF@proton.me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#" class="logo">
+            <div class="logo-mark">QGH</div>
+            <div>QGH<span class="logo-sub">Cybersecurity Co.</span></div>
+          </a>
+          <p data-i18n="footer.desc">QGH — personal cybersecurity company.</p>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav.company">Company</a></li>
+            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="#apply" data-i18n="nav.apply">Apply</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <ul>
+            <li><a href="mailto:1PalDEF@proton.me">1PalDEF@proton.me</a></li>
+            <li><a href="https://t.me/QGH_bot" target="_blank" rel="noopener">t.me/QGH_bot</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="footer.legal">Legal</h4>
+          <ul>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="#apply" data-i18n="footer.rules">Application Rules</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span data-i18n="footer.copy">© 2026 QGH Cybersecurity</span>
+        <p class="foot-disc" data-i18n="footer.disclaimer">Not legal advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    menuToggle.addEventListener('click', () => mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex');
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.style.display = 'none'));
+
+    const langSwitch = document.getElementById('langSwitch');
+    document.getElementById('langToggle').addEventListener('click', (e) => {
+      e.stopPropagation();
+      langSwitch.classList.toggle('open');
+    });
+    document.addEventListener('click', () => langSwitch.classList.remove('open'));
+    langSwitch.addEventListener('click', (e) => {
+      if (e.target.classList.contains('lang-btn')) langSwitch.classList.remove('open');
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('visible'); }, { threshold: 0.08 }).observe(el);
+    });
+
+    document.querySelectorAll('.stat-num').forEach(el => {
+      new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) return;
+        const t = +el.dataset.target;
+        const sfx = t === 99 ? '%' : t === 24 ? '/7' : '+';
+        let c = 0;
+        const step = t / 50;
+        const iv = setInterval(() => {
+          c += step;
+          if (c >= t) { el.textContent = t + sfx; clearInterval(iv); }
+          else el.textContent = Math.floor(c) + (t === 99 ? '%' : t === 24 ? '/7' : '+');
+        }, 30);
+      }, { threshold: 0.5 }).observe(el);
+    });
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+
+    function copyWithFeedback(btnId, getText, restoreKey) {
+      document.getElementById(btnId).addEventListener('click', () => {
+        navigator.clipboard.writeText(typeof getText === 'function' ? getText() : getText).then(() => {
+          const btn = document.getElementById(btnId);
+          btn.textContent = window._i18n?.apply?.copied || 'Copied!';
+          setTimeout(() => {
+            btn.textContent = window._i18n?.apply?.[restoreKey] || btn.textContent;
+          }, 2000);
+        });
+      });
+    }
+    copyWithFeedback('copyEmail', '1PalDEF@proton.me', 'copyEmail');
+    copyWithFeedback('copyTemplate', () => document.getElementById('emailTemplate').textContent, 'copyTpl');
+  </script>
+</body>
+</html>
